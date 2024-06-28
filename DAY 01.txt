@@ -1,0 +1,90 @@
+1.Write a blog on Difference between HTTP1.1 vs HTTP2
+==========================================================================================================================================================================================
+The Hypertext Transfer Protocol (HTTP) is the foundation of any data exchange on the Web, and it is a protocol used for transmitting hypertext. Since its introduction in the early 1990s, HTTP has undergone several revisions to improve performance, security, and efficiency. Two significant versions are HTTP/1.1, which was introduced in 1997, and HTTP/2, which was released in 2015. Understanding the differences between these versions can help web developers and network administrators optimize web performance and user experience.
+
+HTTP/1.1: The Old Reliable
+HTTP/1.1 brought several improvements over its predecessor, HTTP/1.0, including persistent connections, chunked transfer encoding, and more sophisticated caching mechanisms. Here are some key features and limitations of HTTP/1.1:
+
+Persistent Connections: Unlike HTTP/1.0, HTTP/1.1 supports persistent connections, meaning that a single TCP connection can be used to send and receive multiple HTTP requests/responses. This reduces the overhead of establishing new connections for every request.
+
+Pipelining: HTTP/1.1 introduced request pipelining, allowing clients to send multiple requests without waiting for each response. However, this feature saw limited adoption due to head-of-line blocking, where a single slow response can block all subsequent responses.
+
+Chunked Transfer Encoding: This allows data to be sent in a series of chunks, enabling the server to start sending a response before knowing its total size. This is particularly useful for dynamically generated content.
+
+Improved Caching: HTTP/1.1 provided more control over caching with cache-control headers, allowing better management of how and when resources are cached and revalidated.
+
+Despite these enhancements, HTTP/1.1 has several limitations that impact web performance:
+
+Head-of-Line Blocking: As mentioned, pipelining is susceptible to head-of-line blocking. If one request in a pipeline is delayed, all subsequent requests must wait, which can significantly degrade performance.
+Multiple Connections: To mitigate head-of-line blocking and improve performance, browsers often open multiple parallel connections to a server, leading to increased resource usage and complexity.
+Lack of Prioritization: HTTP/1.1 does not provide a mechanism for prioritizing important resources, which can lead to inefficiencies in loading web pages.
+HTTP/2: The Modern Upgrade
+HTTP/2, the first new version of HTTP since HTTP/1.1, was developed to address the shortcomings of HTTP/1.1 and to adapt to the modern web's needs. Here are the main features and improvements of HTTP/2:
+
+Binary Protocol: Unlike the text-based HTTP/1.1, HTTP/2 uses a binary protocol, which is more efficient to parse, more compact, and less error-prone. This change simplifies the implementation of the protocol and improves performance.
+
+Multiplexing: HTTP/2 allows multiple requests and responses to be sent concurrently over a single TCP connection. This eliminates head-of-line blocking, as responses can be interleaved and delivered as they are ready, rather than being constrained by the order of requests.
+
+Header Compression: HTTP/2 uses HPACK, a header compression mechanism, to reduce the overhead of HTTP headers. This is particularly beneficial for reducing the size of repetitive headers sent in every request.
+
+Stream Prioritization: HTTP/2 allows clients to prioritize streams, enabling more important resources (like CSS and JavaScript files) to be loaded before less critical ones (like images). This helps improve the perceived load time of web pages.
+
+Server Push: HTTP/2 introduces server push, which allows servers to send resources to the client proactively, before they are requested. This can reduce latency by ensuring that necessary resources are available as soon as the client needs them.
+
+Performance and Efficiency
+The improvements in HTTP/2 result in significant performance gains over HTTP/1.1:
+
+Reduced Latency: Multiplexing and server push reduce the time it takes to load web pages, especially those with many resources.
+Better Resource Utilization: A single connection reduces the overhead and complexity associated with managing multiple connections.
+Improved Bandwidth Utilization: Header compression and binary encoding reduce the amount of data transmitted, making more efficient use of available bandwidth.
+Compatibility and Adoption
+One of the key design goals of HTTP/2 was to ensure compatibility with existing web infrastructure. HTTP/2 is backward compatible with HTTP/1.1, meaning that it can fall back to HTTP/1.1 if either the client or server does not support HTTP/2. This has facilitated its adoption, and most modern browsers and web servers now support HTTP/2.
+
+Conclusion
+While HTTP/1.1 served the web well for nearly two decades, the introduction of HTTP/2 represents a significant leap forward in terms of performance and efficiency. By addressing the limitations of HTTP/1.1 and introducing new features like multiplexing, header compression, and server push, HTTP/2 enables faster and more reliable web experiences. As the web continues to evolve, adopting HTTP/2 is essential for anyone looking to optimize the performance and user experience of their websites.
+
+2) Write a blog about objects and its internal representation in Javascript
+=====================================================================================================================================================================================
+Objects are important data types in javascript. Objects are different than primitive datatypes (i.e. number, string, boolean, etc.). Primitive data types contain one value but Objects can hold many values in form of Key: value pair. These keys can be variables or functions and are called properties and methods, respectively, in the context of an object.
+
+Objects, in JavaScript, is it’s most important data-type and forms the building blocks for modern JavaScript. These objects are quite different from JavaScript’s primitive data-types(Number, String, Boolean, null, undefined and symbol) in the sense that while these primitive data-types all store a single value each (depending on their types).
+
+Objects are more complex and each object may contain any combination of these primitive data-types as well as reference data-types.
+An object, is a reference data type. Variables that are assigned a reference value are given a reference or a pointer to that value. That reference or pointer points to the location in memory where the object is stored. The variables don’t actually store the value.
+
+Loosely speaking, objects in JavaScript may be defined as an unordered collection of related data, of primitive or reference types, in the form of “key: value” pairs. These keys can be variables or functions and are called properties and methods, respectively, in the context of an object.
+
+Objects and properties
+A JavaScript object has properties associated with it. A property of an object can be explained as a variable that is attached to the object. Object properties are basically the same as ordinary JavaScript variables, except for the attachment to objects. The properties of an object define the characteristics of the object. You access the properties of an object with a simple dot-notation:
+
+objectName.propertyName
+Create JavaScript Object with Object Literal
+One of easiest way to create a javascript object is object literal, simply define the property and values inside curly braces as shown below
+
+let bike = {name: 'SuperSport', maker:'BMW s1000rr', engine:'999cc'};
+Understanding Objects in JavaScript
+In JavaScript, objects are collections of key-value pairs, where keys are strings (or symbols) and values can be of any data type, including other objects. Objects are used to represent real-world entities, data structures, and more complex data types.
+
+
+const person = {
+  name: "Sreeram K",
+  age: 22,
+  email: "sreeramuidesigner@gmail.com"
+};
+Internal Representation of Objects
+Internally, JavaScript engines use various data structures to represent objects efficiently. One common approach is using a hash table or a similar structure to store the object’s properties and their corresponding values. This allows for fast access and manipulation of properties.
+
+Internal Representation:
+{
+  name: "Sreeram K",
+  age: 22,
+  email: "sreeramuidesigner@gmail.com"
+}
+
+
+
+
+
+
+
+
